@@ -97,7 +97,3 @@ ng serve
 Open your browser and navigate to: **`http://localhost:4200`**
 
 ```
-
-Would you like me to draft the exact contents for your `application.properties` or `requirements.txt` files next so you can copy those over as well?
-
-```
