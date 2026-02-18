@@ -1,0 +1,37 @@
+<div class="row mt-4">
+  <!-- Summary Card -->
+  <div class="col-md-6">
+    <div class="card text-white bg-success mb-3">
+      <div class="card-header">Total Spending</div>
+      <div class="card-body">
+        <h1 class="card-title">{{ totalExpense | currency : 'INR' }}</h1>
+        <p class="card-text">Total expenses recorded so far.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart Card -->
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">Spending by Category</div>
+      <div class="card-body">
+        <div class="chart-container">
+          <canvas baseChart [data]="pieChartData" [type]="pieChartType" [options]="pieChartOptions">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card bg-info text-white mt-3">
+    <div class="card-body text-center">
+      <h2>AI Prediction</h2>
+      <p>Based on your history, your next expense will be around:</p>
+      <h2 *ngIf="prediction > 0 && !errorMsg">{{ prediction | currency : 'INR' }}</h2>
+      <div *ngIf="errorMsg" class="alert alert-warning mt-2">{{ errorMsg }}</div>
+      <button class="btn btn-light mt-2" [disabled]="loading" (click)="getPrediction()">
+        {{ loading ? 'Predicting…' : 'Predict Now' }}
+      </button>
+    </div>
+  </div>
+</div>

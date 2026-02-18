@@ -1,0 +1,7 @@
+.chart-container {
+  display: block;
+  /* Adjust these values to your liking */
+  width: 400px; 
+  height: 400px;
+  margin: 0 auto; /* Centers the chart */
+}

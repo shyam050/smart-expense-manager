@@ -1,0 +1,25 @@
+<div class="container mt-5">
+    <h2>My Expense History</h2>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let expense of expenses">
+                <td>{{ expense.title }}</td>
+                <td>{{ expense.category }}</td>
+                <td>{{ expense.date }}</td>
+                <td>{{ expense.amount | currency:'INR' }}</td>
+                <td>
+                    <button class="btn btn-danger btn-sm" (click)="deleteExpense(expense.id!)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

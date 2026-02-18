@@ -1,0 +1,36 @@
+# ==============================
+# SPRING BOOT BACKEND
+# ==============================
+expense-tracker-backend/target/
+*.class
+*.log
+
+# ==============================
+# ANGULAR FRONTEND
+# ==============================
+expense-manager-frontend/node_modules/
+expense-manager-frontend/dist/
+
+# ==============================
+# PYTHON AI SERVICE
+# ==============================
+expense-predictor/__pycache__/
+*.pyc
+venv/
+
+# ==============================
+# IDE
+# ==============================
+.idea/
+.vscode/
+
+# ==============================
+# OS
+# ==============================
+.DS_Store
+Thumbs.db
+
+# ==============================
+# ENV
+# ==============================
+.env
