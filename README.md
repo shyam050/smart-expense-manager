@@ -12,11 +12,11 @@ A full-stack financial tracking application that allows users to manage daily ex
 
 ## 🚀 Key Features
 
-- ✅ Full Stack CRUD – Add, View, Delete, and Update daily expenses seamlessly
-- 📊 Interactive Dashboard – Dynamic Pie & Line charts using Chart.js
-- 🤖 AI Prediction Engine – Linear Regression model forecasts future expenses
-- 🔐 Secure Authentication – JWT-based authentication with Spring Security
-- 🏗 Microservices Architecture – Spring Boot (Business Logic) + Flask (AI Logic)
+-  Full Stack CRUD – Add, View, Delete, and Update daily expenses seamlessly
+-  Interactive Dashboard – Dynamic Pie & Line charts using Chart.js
+-  AI Prediction Engine – Linear Regression model forecasts future expenses
+-  Secure Authentication – JWT-based authentication with Spring Security
+-  Microservices Architecture – Spring Boot (Business Logic) + Flask (AI Logic)
 
 ---
 
