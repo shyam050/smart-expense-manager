@@ -1,9 +1,22 @@
 
-<div class="container mt-4">
-    <h1 class="text-center mb-4">Smart Expense Manager</h1>
-    <app-dashboard></app-dashboard>
-    <app-add-expense></app-add-expense>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top mb-4" style="background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+  <div class="container">
+    <span class="fw-bold fs-4">Smart Personal Expense Manager</span>
+      
+  </div>
+</nav>
+
+<div class="container pb-5">
+  <app-dashboard></app-dashboard>
+
+  <div class="row g-4 mt-2">
+    <div class="col-lg-4">
+      <app-add-expense></app-add-expense>
+    </div>
     
-    <hr>
-    <router-outlet></router-outlet>
+    <div class="col-lg-8">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>

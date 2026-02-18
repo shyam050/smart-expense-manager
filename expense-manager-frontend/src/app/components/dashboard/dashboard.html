@@ -1,37 +1,40 @@
-<div class="row mt-4">
-  <!-- Summary Card -->
-  <div class="col-md-6">
-    <div class="card text-white bg-success mb-3">
-      <div class="card-header">Total Spending</div>
-      <div class="card-body">
-        <h1 class="card-title">{{ totalExpense | currency : 'INR' }}</h1>
-        <p class="card-text">Total expenses recorded so far.</p>
+<div class="row g-4">
+
+  <div class="col-md-4">
+    <div class="card-custom h-100 position-relative overflow-hidden">
+      <div class="position-relative z-2">
+        <h6 class="text-muted text-uppercase mb-2" style="font-size: 0.75rem; letter-spacing: 1px;">Total Spending</h6>
+        <h2 class="display-5 fw-bold mb-0 text-dark">{{ totalExpense | currency:'INR' }}</h2>
       </div>
-    </div>
+    
+       </div>
   </div>
 
-  <!-- Chart Card -->
-  <div class="col-md-6">
-    <div class="card">
-      <div class="card-header">Spending by Category</div>
-      <div class="card-body">
-        <div class="chart-container">
-          <canvas baseChart [data]="pieChartData" [type]="pieChartType" [options]="pieChartOptions">
-          </canvas>
+  <div class="col-md-4">
+    <div class="card-custom h-100 bg-dark text-white position-relative overflow-hidden" style="background: linear-gradient(135deg, #2b2d42, #1a1b2e);">
+      <div class="d-flex justify-content-between align-items-start">
+        <div>
+          <h6 class="text-uppercase mb-2 text-white-50" style="font-size: 0.75rem; letter-spacing: 1px;">AI Forecast</h6>
+          <h2 class="display-6 fw-bold mb-0" *ngIf="prediction > 0">{{ prediction | currency:'INR' }}</h2>
+          <h2 class="display-6 fw-bold mb-0" *ngIf="prediction === 0">---</h2>
+          <p class="text-white-50 mt-2 small mb-0">Predicted for next month</p>
         </div>
+        <button class="btn btn-sm btn-light text-primary fw-bold px-3 rounded-pill" (click)="getPrediction()">
+          <i class="fa-solid fa-wand-magic-sparkles me-1"></i> Predict
+        </button>
       </div>
     </div>
   </div>
-
-  <div class="card bg-info text-white mt-3">
-    <div class="card-body text-center">
-      <h2>AI Prediction</h2>
-      <p>Based on your history, your next expense will be around:</p>
-      <h2 *ngIf="prediction > 0 && !errorMsg">{{ prediction | currency : 'INR' }}</h2>
-      <div *ngIf="errorMsg" class="alert alert-warning mt-2">{{ errorMsg }}</div>
-      <button class="btn btn-light mt-2" [disabled]="loading" (click)="getPrediction()">
-        {{ loading ? 'Predicting…' : 'Predict Now' }}
-      </button>
+  <div class="col-md-4">
+    <div class="card-custom h-100 d-flex flex-column justify-content-center align-items-center">
+      <h6 class="text-muted mb-3 w-100">Category Split</h6>
+      <div style="height: 220px; width: 100%; display: flex; justify-content: center;">
+        <canvas baseChart 
+          [data]="pieChartData" 
+          [type]="pieChartType" 
+          [options]="pieChartOptions">
+        </canvas>
+      </div>
     </div>
   </div>
 </div>

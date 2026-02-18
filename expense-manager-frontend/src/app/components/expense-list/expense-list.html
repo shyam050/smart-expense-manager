@@ -1,25 +1,52 @@
-<div class="container mt-5">
-    <h2>My Expense History</h2>
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Category</th>
-                <th>Date</th>
-                <th>Amount</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let expense of expenses">
-                <td>{{ expense.title }}</td>
-                <td>{{ expense.category }}</td>
-                <td>{{ expense.date }}</td>
-                <td>{{ expense.amount | currency:'INR' }}</td>
-                <td>
-                    <button class="btn btn-danger btn-sm" (click)="deleteExpense(expense.id!)">Delete</button>
-                </td>
-            </tr>
-        </tbody>
+<div class="card-custom">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h5 class="mb-0">Recent Transactions</h5>
+    <button class="btn btn-sm btn-outline-secondary rounded-pill px-3">
+      <i class="fa-solid fa-filter me-1"></i> Filter
+    </button>
+  </div>
+  
+  <div class="table-responsive">
+    <table class="table table-custom table-hover align-middle mb-0">
+      <thead>
+        <tr>
+          <th>Transaction</th>
+          <th>Date</th>
+          <th>Category</th>
+          <th class="text-end">Amount</th>
+          <th class="text-end"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let expense of expenses">
+          <td class="fw-bold text-dark">{{ expense.title }}</td>
+          <td class="text-muted small">{{ expense.date | date:'mediumDate' }}</td>
+          <td>
+            <span class="badge-custom bg-light text-dark border">
+              {{ expense.category }}
+            </span>
+          </td>
+          <td class="text-end fw-bold text-dark">
+            {{ expense.amount | currency:'INR' }}
+          </td>
+          <td class="text-end">
+            <button class="btn btn-link text-danger p-0 opacity-50 hover-opacity-100" 
+                    (click)="deleteExpense(expense.id!)" 
+                    title="Delete Transaction">
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+          </td>
+        </tr>
+        
+        <tr *ngIf="expenses.length === 0">
+          <td colspan="5" class="text-center py-5">
+            <div class="text-muted opacity-50">
+              <i class="fa-solid fa-receipt fa-2x mb-2"></i>
+              <p>No transactions found.</p>
+            </div>
+          </td>
+        </tr>
+      </tbody>
     </table>
+  </div>
 </div>

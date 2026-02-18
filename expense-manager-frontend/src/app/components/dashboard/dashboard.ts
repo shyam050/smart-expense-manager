@@ -1,7 +1,7 @@
 import { ExpenseService } from './../../services/expense';
 import { Component, OnInit } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts';
-import { ChartData, ChartType, ChartOptions } from 'chart.js';
+import { ChartData, ChartType, ChartOptions, ChartConfiguration } from 'chart.js';
 import { Expense } from '../../models/expense';
 import { CommonModule } from '@angular/common';
 
@@ -40,9 +40,24 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  public pieChartOptions: ChartOptions = {
+  public pieChartOptions: ChartConfiguration['options'] = {
     responsive: true,
-  };
+    maintainAspectRatio: false, 
+    plugins: {
+      legend: {
+        display: true,
+        position: 'right', 
+        labels: {
+          usePointStyle: true,
+          padding: 20,
+          font: {
+            family: "'Plus Jakarta Sans', sans-serif",
+            size: 12
+          }
+        }
+      }
+    }
+};
   public pieChartLabels: string[] = [];
   public pieChartData: ChartData<'pie', number[], string | string[]> = {
     labels: [],
@@ -67,7 +82,7 @@ export class DashboardComponent implements OnInit {
   calculateChartData(expenses: Expense[]) {
     this.totalExpense = expenses.reduce((sum, current) => sum + current.amount, 0);
 
-    // Group by Category (Logic: Map<Category, TotalAmount>)
+    
     const categoryMap = new Map<string, number>();
 
     expenses.forEach((exp) => {
@@ -75,7 +90,6 @@ export class DashboardComponent implements OnInit {
       categoryMap.set(exp.category, currentTotal + exp.amount);
     });
 
-    // Update Chart Data
     this.pieChartLabels = Array.from(categoryMap.keys());
     this.pieChartData = {
       labels: this.pieChartLabels,
