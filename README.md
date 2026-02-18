@@ -59,3 +59,45 @@ Create a MySQL database:
 
 ```sql
 CREATE DATABASE expense_tracker;
+
+```
+
+### 2️⃣ Backend (Spring Boot)
+
+Navigate to the backend directory and run the Spring Boot application:
+
+```bash
+cd expense-tracker-backend
+mvn spring-boot:run
+
+```
+
+### 3️⃣ AI Service (Python)
+
+Navigate to the AI directory, install dependencies, and start the Flask server:
+
+```bash
+cd expense-predictor-ai
+pip install flask pandas scikit-learn flask-cors
+python app.py
+
+```
+
+### 4️⃣ Frontend (Angular)
+
+Navigate to the frontend directory, install the required packages, and start the development server:
+
+```bash
+cd expense-tracker-frontend
+npm install
+ng serve
+
+```
+
+Open your browser and navigate to: **`http://localhost:4200`**
+
+```
+
+Would you like me to draft the exact contents for your `application.properties` or `requirements.txt` files next so you can copy those over as well?
+
+```
