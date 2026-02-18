@@ -5,11 +5,8 @@ A full-stack financial tracking application that allows users to manage daily ex
 
 ## 📸 Screenshots
 
-### 🏠 Dashboard Overview
+### Dashboard Overview
 ![Dashboard](screenshots/screenshot.png)
-
-### 📊 Transactions 
-![Transactions](screenshots/add-expenses.png)
 
 ---
 
