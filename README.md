@@ -2,7 +2,14 @@
 
 A full-stack financial tracking application that allows users to manage daily expenses and uses Machine Learning to predict future spending trends based on historical data.
 
-> 📌 Note: Place your dashboard screenshot inside a folder named `screenshots/` in the project root.
+
+## 📸 Screenshots
+
+### 🏠 Dashboard Overview
+![Dashboard](screenshots/screenshot.png)
+
+### 📊 Transactions 
+![Transactions](screenshots/add-expenses.png)
 
 ---
 
